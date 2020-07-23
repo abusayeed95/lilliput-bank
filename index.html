@@ -40,7 +40,7 @@
             <div class="col-4">
                 <div class="status wdraw">
                     <h5>Withdraw</h5>
-                    <h2>$ <span id="wdrawInput">00</span></h2>
+                    <h2>$ <span id="currentWdraw">00</span></h2>
                 </div>
             </div>
             <div class="col-4">
@@ -70,7 +70,7 @@
                     <h2>
                         Withdraw
                     </h2> <br>
-                    <input placeholder="$amount you wanna withdraw" class="form-control">
+                    <input id="wdrawInput" placeholder="$amount you wanna withdraw" class="form-control">
                     <button class="btn btn-success" id="wdrawBtn">
                         withdraw
                     </button>
@@ -95,19 +95,52 @@
 
             const currentDeposit = document.getElementById('currentDepo').innerText;
             const currentDepositAmount = parseFloat(currentDeposit);
-
             const totalDeposit = depositAmount + currentDepositAmount;
-
             document.getElementById('currentDepo').innerText = totalDeposit;
+
             document.getElementById('depoInput').value = "";
 
             const currentBalance = document.getElementById('currentBal').innerText;
             const currentBalanceAmount = parseFloat(currentBalance);
             const totalBalance = currentBalanceAmount + depositAmount;
-
             document.getElementById('currentBal').innerText = totalBalance;
         })
 
+        //withdraw button
+
+        const withdrawButton = document.getElementById('wdrawBtn');
+        withdrawButton.addEventListener('click', function () {
+            const withdrawInput = document.getElementById('wdrawInput').value;
+            const withdrawAmount = parseFloat(withdrawInput);
+            // inputAmount('wdrawInput');
+
+            const currentWithdraw = document.getElementById('currentWdraw').innerText;
+            const currentWithdrawAmount = parseFloat(currentWithdraw);
+            const totalWithdraw = withdrawAmount + currentWithdrawAmount;
+            document.getElementById('currentWdraw').innerText = totalWithdraw;
+            // currentAndTotal('currentWdraw', amount);
+            // currentAndTotal('currentBal', amount)
+
+            document.getElementById('wdrawInput').value = "";
+
+            const currentBalance = document.getElementById('currentBal').innerText;
+            const currentBalanceAmount = parseFloat(currentBalance);
+            const totalBalance = currentBalanceAmount + -1 * withdrawAmount;
+            document.getElementById('currentBal').innerText = totalBalance;
+        })
+
+        // function inputAmount(id) {
+        //     const input = document.getElementById(id).value;
+        //     const amount = parseFloat(input);
+        //     return amount;
+        // }
+
+        // function currentAndTotal(id, currentAmount) {
+        //     const current = document.getElementById(id).innerText;
+        //     const currentAmount = parseFloat(current);
+        //     const total = currentAmount + currentAmount;
+        //     document.getElementById(id).innerText = total;
+        // }
 
 
 
