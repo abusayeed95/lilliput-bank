@@ -17,7 +17,133 @@
         <h1 class="text-center">
             Welcome to my Lilliput Bank
         </h1>
+        <div class="submissionArea">
+            <h4>
+                Log In
+            </h4>
+            <input type="email" name="email" id="" class="form-control" placeholder="Email"> <br>
+            <input type="password" name="password" id="" class="form-control" placeholder="Password"> <br>
+            <button class="btn btn-success" id="loginBTN">
+                Enter
+            </button>
+        </div>
     </div>
+
+    <div id="trans-area">
+        <div class="row">
+            <div class="col-4">
+                <div class=" status depo">
+                    <h5>Deposit</h5>
+                    <h2>$ <span id="currentDepo">00</span></h2>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="status wdraw">
+                    <h5>Withdraw</h5>
+                    <h2>$ <span id="wdrawInput">00</span></h2>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="status bal">
+                    <h5>Balance</h5>
+                    <h2>$ <span id="currentBal">2000</span></h2>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-6">
+                <div class="submissionArea">
+                    <h2>
+                        Deposit
+                    </h2> <br>
+                    <input id="depoInput" placeholder="$amount you wanna deposit" class="form-control">
+                    <button id="depoBtn" class="btn btn-success">
+                        Deposit
+                    </button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="submissionArea">
+                    <h2>
+                        Withdraw
+                    </h2> <br>
+                    <input placeholder="$amount you wanna withdraw" class="form-control">
+                    <button class="btn btn-success" id="wdrawBtn">
+                        withdraw
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        //log in button
+
+        const loginButton = document.getElementById('loginBTN');
+        loginButton.addEventListener('click', function () { const loginArea = document.getElementById('loginArea'); loginArea.style.display = 'none'; const transArea = document.getElementById('trans-area'); transArea.style.display = 'block'; })
+
+        //deposit button
+
+        const depositButton = document.getElementById('depoBtn');
+        depositButton.addEventListener('click', function () {
+            const depositInput = document.getElementById('depoInput').value;
+            const depositAmount = parseFloat(depositInput);
+
+            const currentDeposit = document.getElementById('currentDepo').innerText;
+            const currentDepositAmount = parseFloat(currentDeposit);
+
+            const totalDeposit = depositInput + currentDepositAmount;
+
+            document.getElementById('currentDepo').innerText = totalDeposit;
+            document.getElementById('depoInput').value = "";
+        })
+
+
+
+
+
+
+
+        // const depositButton = document.getElementById('depoBtn');
+        // depositButton.addEventListener('click', function () {
+        //     // const depositInput = document.getElementById('depoInput').value;
+        //     // const depositAmount = parseFloat(depositInput);
+        //     inputAmount('depoInput');
+
+        //     spanTextUpdate("currentDepo", depositAmount);
+        //     spanTextUpdate("currentBal", depositAmount);
+        //     document.getElementById('depoInput').value = "";
+        // })
+
+        // //withdraw button
+
+        // const withdrawButton = document.getElementById('wdrawBtn');
+        // withdrawButton.addEventListener('click', function () {
+        //     const withdrawInput = document.getElementById('wdrawInput').value;
+        //     withdrawAmount = parseFloat(withdrawInput);
+
+        //     spanTextUpdate("wdrawInput", -1 * withdrawAmount);
+        //     document.getElementById('wdrawInput').value = "";
+        // })
+
+
+        // function inputAmount(id) {
+        //     amount = document.getElementById(id).value;
+        //     inNumber = parseFloat(amount);
+        //     return inNumber;
+        // }
+
+        // function spanTextUpdate(id, DepositAmount) {
+        //     const current = document.getElementById(id).innerText;
+        //     const inNumber = parseFloat(current);
+        //     const total = DepositAmount + inNumber;
+        //     document.getElementById(id).innerText = total;
+        // }
+    </script>
 </body>
 
 </html>

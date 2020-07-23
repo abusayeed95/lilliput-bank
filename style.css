@@ -1,0 +1,32 @@
+body{
+    padding: 100px;
+}
+
+.submissionArea{
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 50px;
+}
+
+#trans-area{
+    display: none;
+}
+
+.status {
+    border-radius: 10px;
+    color: white;
+    padding: 5px 15px;
+}
+
+.depo{
+    background-color: red;
+}
+
+.wdraw{
+    background-color: green;
+}
+
+.bal{
+    background-color: blue;
+}
