@@ -96,10 +96,16 @@
             const currentDeposit = document.getElementById('currentDepo').innerText;
             const currentDepositAmount = parseFloat(currentDeposit);
 
-            const totalDeposit = depositInput + currentDepositAmount;
+            const totalDeposit = depositAmount + currentDepositAmount;
 
             document.getElementById('currentDepo').innerText = totalDeposit;
             document.getElementById('depoInput').value = "";
+
+            const currentBalance = document.getElementById('currentBal').innerText;
+            const currentBalanceAmount = parseFloat(currentBalance);
+            const totalBalance = currentBalanceAmount + depositAmount;
+
+            document.getElementById('currentBal').innerText = totalBalance;
         })
 
 
